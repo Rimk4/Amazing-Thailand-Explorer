@@ -16,8 +16,30 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 my_app/  
-├── lib/  
-│   └── main.dart      # ← ОСНОВНОЙ ФАЙЛ ДЛЯ РЕДАКТИРОВАНИЯ  
+├── lib/
+│   ├── main.dart
+│   ├── app.dart
+│   ├── models/
+│   │   ├── track_point.dart
+│   │   └── activity.dart
+│   ├── services/
+│   │   ├── storage_service.dart
+│   │   ├── location_service.dart
+│   │   └── activity_service.dart
+│   ├── screens/
+│   │   ├── splash_screen.dart
+│   │   ├── main_menu_screen.dart
+│   │   ├── map_screen.dart
+│   │   ├── stats_screen.dart
+│   │   ├── achievements_screen.dart
+│   │   ├── settings_screen.dart
+│   │   └── about_screen.dart
+│   ├── widgets/
+│   │   ├── menu_button.dart
+│   │   ├── stat_item.dart
+│   │   └── activity_item.dart
+│   └── utils/
+│       └── constants.dart  
 ├── android/           # Android-специфичные файлы  
 ├── ios/              # iOS-специфичные файлы  
 ├── pubspec.yaml      # Зависимости и настройки  

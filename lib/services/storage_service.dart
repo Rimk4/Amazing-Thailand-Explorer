@@ -1,12 +1,11 @@
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../models/track_point.dart';
 import '../models/activity.dart';
-import '../models/location_point.dart';
 
 class StorageService {
-  static const String _trackKey = 'track_data';
+  static const String _trackKey = 'track';
   static const String _activitiesKey = 'activities';
-  static const String _totalDistanceKey = 'total_distance';
   
   late SharedPreferences _prefs;
   
@@ -14,50 +13,56 @@ class StorageService {
     _prefs = await SharedPreferences.getInstance();
   }
   
-  Future<void> saveTrackData(List<LocationPoint> points, double totalDistance) async {
-    // Сохраняем точки
-    final pointsJson = json.encode(points.map((p) => p.toJson()).toList());
-    await _prefs.setString(_trackKey, pointsJson);
-    
-    // Сохраняем общую дистанцию
-    await _prefs.setDouble(_totalDistanceKey, totalDistance);
+  Future<void> saveTrack(List<TrackPoint> points, double totalDistance) async {
+    final json = jsonEncode({
+      'points': points.map((p) => p.toJson()).toList(),
+      'totalDistance': totalDistance,
+    });
+    await _prefs.setString(_trackKey, json);
   }
   
-  (List<LocationPoint>, double) getTrackData() {
-    final pointsJson = _prefs.getString(_trackKey);
-    final totalDistance = _prefs.getDouble(_totalDistanceKey) ?? 0.0;
+  (List<TrackPoint>, double) loadTrack() {
+    final jsonStr = _prefs.getString(_trackKey);
     
-    List<LocationPoint> points = [];
+    List<TrackPoint> points = [];
+    double distance = 0.0;
     
-    if (pointsJson != null) {
+    if (jsonStr != null) {
       try {
-        final List<dynamic> jsonList = json.decode(pointsJson);
-        points = jsonList.map((json) => LocationPoint.fromJson(json)).toList();
+        final Map<String, dynamic> json = jsonDecode(jsonStr);
+        final List<dynamic> pointsJson = json['points'] as List;
+        points = pointsJson.map((p) => TrackPoint.fromJson(p)).toList();
+        distance = json['totalDistance'] as double;
       } catch (e) {
-        points = [];
+        print('Ошибка загрузки трека: $e');
       }
     }
     
-    return (points, totalDistance);
+    return (points, distance);
   }
   
   Future<void> saveActivities(List<Activity> activities) async {
-    final activitiesJson = json.encode(activities.map((a) => a.toJson()).toList());
-    await _prefs.setString(_activitiesKey, activitiesJson);
+    final json = jsonEncode(activities.map((a) => a.toJson()).toList());
+    await _prefs.setString(_activitiesKey, json);
   }
   
-  List<Activity> getActivities() {
-    final activitiesJson = _prefs.getString(_activitiesKey);
+  List<Activity> loadActivities() {
+    final jsonStr = _prefs.getString(_activitiesKey);
     
-    if (activitiesJson != null) {
+    if (jsonStr != null) {
       try {
-        final List<dynamic> jsonList = json.decode(activitiesJson);
-        return jsonList.map((json) => Activity.fromJson(json)).toList();
+        final List<dynamic> jsonList = jsonDecode(jsonStr);
+        return jsonList.map((a) => Activity.fromJson(a)).toList();
       } catch (e) {
-        return [];
+        print('Ошибка загрузки активностей: $e');
       }
     }
     
     return [];
+  }
+  
+  Future<void> clearAllData() async {
+    await _prefs.remove(_trackKey);
+    await _prefs.remove(_activitiesKey);
   }
 }
