@@ -16,29 +16,29 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 amazing_thailand_explorer/  
-├── lib/
-│   ├── main.dart
-│   ├── app.dart
-│   ├── models/
-│   │   ├── track_point.dart
-│   │   └── activity.dart
-│   ├── services/
-│   │   ├── storage_service.dart
-│   │   ├── location_service.dart
-│   │   └── activity_service.dart
-│   ├── screens/
-│   │   ├── splash_screen.dart
-│   │   ├── main_menu_screen.dart
-│   │   ├── map_screen.dart
-│   │   ├── stats_screen.dart
-│   │   ├── achievements_screen.dart
-│   │   ├── settings_screen.dart
-│   │   └── about_screen.dart
-│   ├── widgets/
-│   │   ├── menu_button.dart
-│   │   ├── stat_item.dart
-│   │   └── activity_item.dart
-│   └── utils/
+├── lib/  
+│   ├── main.dart  
+│   ├── app.dart  
+│   ├── models/  
+│   │   ├── track_point.dart  
+│   │   └── activity.dart  
+│   ├── services/  
+│   │   ├── storage_service.dart  
+│   │   ├── location_service.dart  
+│   │   └── activity_service.dart  
+│   ├── screens/  
+│   │   ├── splash_screen.dart  
+│   │   ├── main_menu_screen.dart  
+│   │   ├── map_screen.dart  
+│   │   ├── stats_screen.dart  
+│   │   ├── achievements_screen.dart  
+│   │   ├── settings_screen.dart  
+│   │   └── about_screen.dart  
+│   ├── widgets/  
+│   │   ├── menu_button.dart  
+│   │   ├── stat_item.dart  
+│   │   └── activity_item.dart  
+│   └── utils/  
 │       └── constants.dart  
 ├── android/           # Android-специфичные файлы  
 ├── ios/              # iOS-специфичные файлы  
@@ -64,3 +64,23 @@ code amazing_thailand_explorer/lib/main.dart
 ### Просмотреть структуру проекта
 `find . -type f -name "*.dart" | head -20`
 
+# Очистить и запустить
+start.sh:
+```
+flutter clean
+flutter pub get
+flutter run
+```
+
+# Собрать релизный APK  
+```flutter build apk --release```  
+
+# Удалите старые файлы и папки  
+rm -rf build .dart_tool .packages pubspec.lock  
+  
+# Очистите и переустановите  
+flutter clean  
+flutter pub get  
+  
+# Запустите  
+flutter run  
