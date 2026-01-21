@@ -1,4 +1,4 @@
-# my_app
+# amazing_thailand_explorer
 
 A new Flutter project.
 
@@ -15,7 +15,7 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
-my_app/  
+amazing_thailand_explorer/  
 ├── lib/
 │   ├── main.dart
 │   ├── app.dart
@@ -46,7 +46,7 @@ my_app/
 └── ...  
 
 # Откройте основной файл в VS Code
-code my_app/lib/main.dart
+code amazing_thailand_explorer/lib/main.dart
 
 `flutter run`  
 
