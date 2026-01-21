@@ -1,0 +1,16 @@
+{
+  "@@locale": "en",
+  "appTitle": "Amazing Thailand Explorer",
+  "map": "Map",
+  "statistics": "Statistics",
+  "totalDistance": "Total Distance",
+  "achievements": "Achievements",
+  "recentAchievements": "Recent Achievements",
+  "noAchievementsYet": "No achievements yet",
+  "unlocked": "Unlocked",
+  "locked": "Locked",
+  "achievementUnlocked": "Achievement Unlocked!",
+  "startTracking": "Start Tracking",
+  "stopTracking": "Stop Tracking",
+  "centerMap": "Center Map"
+}

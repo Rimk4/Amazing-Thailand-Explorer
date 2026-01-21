@@ -1,0 +1,41 @@
+name: amazing_thailand_explorer
+description: Amazing Thailand Explorer - Bangkok MVP
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # Карты
+  flutter_map: ^6.0.0
+  latlong2: ^0.9.0
+  
+  # Геолокация
+  geolocator: ^11.0.0
+  
+  # Хранение данных
+  shared_preferences: ^2.2.2
+  
+  # UUID
+  uuid: ^4.4.0
+  
+  # Utils
+  intl: ^0.19.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  
+  # Уберите или закомментируйте эти строки пока:
+  # generate: true
+  
+  assets:
+    - assets/

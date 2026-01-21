@@ -1,0 +1,16 @@
+{
+  "@@locale": "ru",
+  "appTitle": "Amazing Thailand Explorer",
+  "map": "Карта",
+  "statistics": "Статистика",
+  "totalDistance": "Всего пройдено",
+  "achievements": "Ачивки",
+  "recentAchievements": "Последние ачивки",
+  "noAchievementsYet": "Ачивок пока нет",
+  "unlocked": "Открыто",
+  "locked": "Заблокировано",
+  "achievementUnlocked": "Ачивка получена!",
+  "startTracking": "Начать трекинг",
+  "stopTracking": "Остановить трекинг",
+  "centerMap": "Центрировать карту"
+}
